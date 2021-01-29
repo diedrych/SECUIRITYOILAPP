@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
-
+import android.view.View.OnClickListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,8 +23,13 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class NewsReportMenu extends AppCompatActivity {
+
+    private ImageView iwOk;
+    private TextView twOk;
     private ImageView iw1;
     private TextView tw1;
+    private ImageView iw2;
+    private TextView tw2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +39,26 @@ public class NewsReportMenu extends AppCompatActivity {
         iw1 =(ImageView)findViewById(R.id.accident);
         tw1 =(TextView) findViewById(R.id.accidentText);
 
+        iw2 =(ImageView)findViewById(R.id.insurance);
+        tw2 =(TextView) findViewById(R.id.insuranceText);
+
 
         //Agrega el icono al action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
+        iw2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(final View v) {
+                Intent i = new Intent(v.getContext(), newsForm.class);
 
+                i.putExtra("dato", iw2.getContentDescription().toString());
+                i.putExtra("code", tw2.getContentDescription().toString());
+                startActivity(i);
+            }
+        });
     }
+
+
 
     public void passNewForm(View view){
         Intent i = new Intent(this, newsForm.class);
@@ -48,6 +66,8 @@ public class NewsReportMenu extends AppCompatActivity {
         i.putExtra("code", tw1.getContentDescription().toString());
         startActivity(i);
     }
+
+
 
     //metodo para mostrar y ocultar el menu
     public boolean onCreateOptionsMenu(Menu menu){

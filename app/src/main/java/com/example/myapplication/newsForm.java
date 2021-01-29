@@ -45,6 +45,9 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 
 public class newsForm extends AppCompatActivity {
@@ -68,7 +71,8 @@ public class newsForm extends AppCompatActivity {
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
 
 
-        String[] options = {};
+        //String[] options = {};
+        ArrayList<String> options = new ArrayList<String>();
 
 
         tv1 =(TextView)findViewById(R.id.textViewTitle);
@@ -82,11 +86,13 @@ public class newsForm extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful()){
                             for(QueryDocumentSnapshot document: task.getResult()){
-                                Log.d("meca", document.getId() + "=> " + document.getData());
-                              // options = add_element("hola");
+                                Log.d("data:", document.getId() + "=> " + document.getData());
+                               String subtypesName =document.getData().get("subtype_novelty_name").toString();
+                                String subtypesId =document.getId().toString();
+                               options.add(subtypesName);
                             }
                         }else{
-                            Log.w("meca", "error meca");
+                            Log.w("error", "error getting documents");
                         }
                     }
                 });
@@ -96,9 +102,7 @@ public class newsForm extends AppCompatActivity {
             ActivityCompat.requestPermissions(newsForm.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);
         }
 
-
-        //se crea el arraydapater
-        String[] nombres = new String[]{"luna", "pedro", "martha"};
+        Collections.sort(options);
         ArrayAdapter<String> adapter= new ArrayAdapter<>(
                 this, R.layout.dropdown_item, options
         );
