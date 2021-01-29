@@ -19,4 +19,10 @@ public class MainActivity extends AppCompatActivity {
         Intent reportMenu = new Intent(this, NewsReportMenu.class);
         startActivity(reportMenu);
     }
+
+    //e_learning boton
+    public void ELearning(View view){
+        Intent ELearning = new Intent(this, e_learning.class);
+        startActivity(ELearning);
+    }
 }

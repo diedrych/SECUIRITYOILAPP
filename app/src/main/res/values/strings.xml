@@ -10,4 +10,10 @@
     <string name="txt_machine">Maquinaria</string>
     <string name="txt_enviroment">Ambiental</string>
     <string name="btn_save">Guardar</string>
+    <string name="txt_elearning">E-Learning</string>
+    <string name="txt_normativity">Normatividad</string>
+    <string name="txt_care_tips">Consejos de Cuidado</string>
+    <string name="txt_consider">Para Tener en Cuenta</string>
+
+
 </resources>
