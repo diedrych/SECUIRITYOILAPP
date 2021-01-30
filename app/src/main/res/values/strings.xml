@@ -14,6 +14,11 @@
     <string name="txt_normativity">Normatividad</string>
     <string name="txt_care_tips">Consejos de Cuidado</string>
     <string name="txt_consider">Para Tener en Cuenta</string>
-
-
+    <string name="txt_rule100">Ley 100 de 1993</string>
+    <string name="txt_rule1072">Decreto 1072 de 2015</string>
+    <string name="txt_rule614">Decreto 614 de 1984</string>
+    <string name="txt_rule1281">Decreto 1281 de 1994</string>
+    <string name="txt_rule1295">Decreto 1295 de 1994</string>
+    <string name="txt_rule2400">Resolución 2400 de 1979</string>
+    <string name="txt_rule1016">Resolución 1016 de 1989</string>
 </resources>
