@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.AppCompat.Popup">
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+</resources>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background1"
+    tools:context=".content">
+
+    <TextView
+        android:id="@+id/textViewT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="@string/txt_care_tips"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_margin="20sp"
+        android:columnCount="2"
+        android:rowCount="3">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="60sp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/hands"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_care_tips"
+                android:src="@drawable/ic_hands" />
+
+            <TextView
+                android:id="@+id/handsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/txt_hands"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="60sp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/focus"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_care_tips"
+                android:src="@drawable/ic_focus" />
+
+            <TextView
+                android:id="@+id/focusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/txt_focus"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="60sp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/machinery"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_care_tips"
+                android:src="@drawable/ic_machinery" />
+
+            <TextView
+                android:id="@+id/machineryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/txt_machinery"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="60sp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/query"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_care_tips"
+                android:src="@drawable/ic_query" />
+
+            <TextView
+                android:id="@+id/queryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/txt_query"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="60sp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/cleaning"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_care_tips"
+                android:src="@drawable/ic_cleaning" />
+
+            <TextView
+                android:id="@+id/cleaningText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/txt_cleaning"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="60sp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/warn"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_care_tips"
+                android:src="@drawable/ic_warn" />
+
+            <TextView
+                android:id="@+id/warnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/txt_warn"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </GridLayout>
+
+</RelativeLayout>

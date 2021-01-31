@@ -35,10 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="30sp"
             android:layout_margin="2sp"
-            android:layout_marginRight="20sp"
             android:layout_marginTop="60sp"
             android:gravity="center"
-            android:paddingRight="7sp"
             android:orientation="horizontal">
 
             <ImageView
@@ -53,7 +51,6 @@
                 android:id="@+id/rule100Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="2L6mlKvoPMZuFeSf40eR"
                 android:gravity="center"
                 android:text="@string/txt_rule100"
                 android:background="@drawable/white_rectangle_background"
@@ -65,10 +62,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="30sp"
-            android:layout_marginRight="20sp"
             android:layout_marginTop="35sp"
             android:gravity="center"
-            android:paddingRight="7sp"
             android:orientation="horizontal">
 
             <ImageView
@@ -83,7 +78,6 @@
                 android:id="@+id/rule1072Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="2L6mlKvoPMZuFeSf40eR"
                 android:layout_marginBottom="5sp"
                 android:gravity="center"
                 android:text="@string/txt_rule1072"
@@ -97,10 +91,8 @@
             android:layout_width="wrap_content"
             android:layout_height="30sp"
             android:layout_margin="2sp"
-            android:layout_marginRight="20sp"
             android:layout_marginTop="35sp"
             android:gravity="center"
-            android:paddingRight="7sp"
             android:orientation="horizontal">
 
         <ImageView
@@ -115,7 +107,6 @@
             android:id="@+id/rule614Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="2L6mlKvoPMZuFeSf40eR"
             android:layout_marginBottom="5sp"
             android:gravity="center"
             android:text="@string/txt_rule614"
@@ -129,10 +120,8 @@
             android:layout_width="wrap_content"
             android:layout_height="30sp"
             android:layout_margin="2sp"
-            android:layout_marginRight="20sp"
             android:layout_marginTop="35sp"
             android:gravity="center"
-            android:paddingRight="7sp"
             android:orientation="horizontal">
 
             <ImageView
@@ -147,7 +136,6 @@
                 android:id="@+id/rule1281Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="2L6mlKvoPMZuFeSf40eR"
                 android:layout_marginBottom="5sp"
                 android:gravity="center"
                 android:text="@string/txt_rule1281"
@@ -161,10 +149,8 @@
             android:layout_width="wrap_content"
             android:layout_height="30sp"
             android:layout_margin="2sp"
-            android:layout_marginRight="20sp"
             android:layout_marginTop="35sp"
             android:gravity="center"
-            android:paddingRight="7sp"
             android:orientation="horizontal">
 
             <ImageView
@@ -179,7 +165,6 @@
                 android:id="@+id/rule1295Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="2L6mlKvoPMZuFeSf40eR"
                 android:layout_marginBottom="5sp"
                 android:gravity="center"
                 android:text="@string/txt_rule1295"
@@ -193,10 +178,8 @@
             android:layout_width="wrap_content"
             android:layout_height="30sp"
             android:layout_margin="2sp"
-            android:layout_marginRight="20sp"
             android:layout_marginTop="35sp"
             android:gravity="center"
-            android:paddingRight="7sp"
             android:orientation="horizontal">
 
             <ImageView
@@ -211,7 +194,6 @@
                 android:id="@+id/rule2400Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="2L6mlKvoPMZuFeSf40eR"
                 android:layout_marginBottom="5sp"
                 android:gravity="center"
                 android:text="@string/txt_rule2400"
@@ -225,10 +207,8 @@
             android:layout_width="wrap_content"
             android:layout_height="30sp"
             android:layout_margin="2sp"
-            android:layout_marginRight="20sp"
             android:layout_marginTop="35sp"
             android:gravity="center"
-            android:paddingRight="7sp"
             android:orientation="horizontal">
 
             <ImageView
@@ -243,7 +223,6 @@
                 android:id="@+id/rule1016Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="2L6mlKvoPMZuFeSf40eR"
                 android:layout_marginBottom="5sp"
                 android:gravity="center"
                 android:text="@string/txt_rule1016"
