@@ -34,8 +34,6 @@ public class NewsReportMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_report_menu);
 
-        date = (EditText)findViewById(R.id.dateTime);
-
         iw1 =(ImageView)findViewById(R.id.accident);
         tw1 =(TextView) findViewById(R.id.accidentText);
 

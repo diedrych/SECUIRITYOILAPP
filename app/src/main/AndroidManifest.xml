@@ -2,11 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
 
-    //permiso para usar la camara del dispositivo
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
-    //permiso para guardar fotos
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".newsForm"></activity>
+        <activity android:name=".hour"></activity>
+        <activity android:name=".newsForm" />
         <activity android:name=".NewsReportMenu" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -30,12 +32,10 @@
             android:authorities="com.example.android.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-                <meta-data
+            <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths">
-                </meta-data>
+                android:resource="@xml/file_paths"></meta-data>
         </provider>
-
     </application>
 
 </manifest>

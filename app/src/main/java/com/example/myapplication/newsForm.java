@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,8 @@ import android.content.pm.PackageManager;
 import android.Manifest;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
@@ -32,7 +35,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -49,14 +54,22 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class newsForm extends AppCompatActivity {
 
     DatabaseReference mRootReference;
     TextInputLayout textInputLayout;
     AutoCompleteTextView autoCompleteTextView;
+    AutoCompleteTextView autoCompletePriority;
     private TextView tv1;
+    File photoFile = null;
+    private EditText Element;
+    private EditText Priority;
+    private EditText Description;
     private ImageView img;
+
 
 
     @Override
@@ -69,9 +82,12 @@ public class newsForm extends AppCompatActivity {
         mRootReference = FirebaseDatabase.getInstance().getReference();
         textInputLayout=findViewById(R.id.dropDownOption);
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+        autoCompletePriority = findViewById(R.id.autoCompletePriority);
+        Element = (EditText)findViewById(R.id.autoCompleteTextView);
+        Priority = (EditText)findViewById(R.id.autoCompletePriority);
+        Description = (EditText)findViewById(R.id.editDescription);
 
 
-        //String[] options = {};
         ArrayList<String> options = new ArrayList<String>();
 
 
@@ -106,10 +122,14 @@ public class newsForm extends AppCompatActivity {
         ArrayAdapter<String> adapter= new ArrayAdapter<>(
                 this, R.layout.dropdown_item, options
         );
+
+        String[] priority = {"Alto", "Medio", "Bajo"};
+        ArrayAdapter<String> priorities = new ArrayAdapter<>(
+                this, R.layout.dropdown_item, priority
+        );
+
         autoCompleteTextView.setAdapter(adapter);
-
-
-
+        autoCompletePriority.setAdapter(priorities);
     }
 
     //metodo para mostrar y ocultar el menu
@@ -150,7 +170,7 @@ public class newsForm extends AppCompatActivity {
     public void takePicture(View view){
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if(takePictureIntent.resolveActivity(getPackageManager()) != null){
-            File photoFile=null;
+           // File photoFile=null;
             try{
                 photoFile=createImageFile();
 
@@ -170,5 +190,67 @@ public class newsForm extends AppCompatActivity {
     }
 
 
+    //metodo para guardar la novedad
+    public void  saveNovelties(View view){
+        String prior = Priority.getText().toString().trim();
+        String elem = Element.getText().toString().trim();
+        String desc = Description.getText().toString().trim();
 
+        Log.d("data:", desc);
+
+
+        if(!validateInputs(prior, elem, desc)){
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            Map<String, Object> map= new HashMap<>();
+            map.put("date", new Date().getTime());
+            map.put("priority", prior);
+            map.put("condition", elem);
+            map.put("description", desc);
+
+            db.collection("news_report").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                @Override
+                public void onSuccess(DocumentReference documentReference) {
+                    Toast.makeText(newsForm.this, "Reporte creado con Exito", Toast.LENGTH_LONG).show();
+                    Element.setText(null);
+                    Priority.setText(null);
+                    Description.setText(null);
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(newsForm.this, "Fallo la creacion del reporte", Toast.LENGTH_LONG).show();
+                }
+            });
+
+
+
+        }
+
+    }
+
+
+   //metodo para valida que los campos esten llenos
+   private boolean validateInputs(String prior, String cond, String desc) {
+       if (prior.isEmpty()) {
+           autoCompletePriority.setError("Ingrese la prioridad");
+           autoCompletePriority.requestFocus();
+           return true;
+       }
+
+       if (cond.isEmpty()) {
+           autoCompleteTextView.setError("Ingrese la condición");
+           autoCompleteTextView.requestFocus();
+           return true;
+       }
+
+       if (desc.isEmpty()) {
+           Description.setError("Ingrese la descripción");
+           Description.requestFocus();
+           return true;
+       }
+
+       return false;
+   }
 }
