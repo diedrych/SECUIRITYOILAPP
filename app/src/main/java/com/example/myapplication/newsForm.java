@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -43,6 +44,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.IOError;
@@ -56,6 +60,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class newsForm extends AppCompatActivity {
 
@@ -70,6 +75,11 @@ public class newsForm extends AppCompatActivity {
     private EditText Description;
     private ImageView img;
 
+    private StorageReference mStorage;
+    private ProgressDialog mProgress;
+    private StorageReference filePath;
+    int flag =0;
+
 
 
     @Override
@@ -79,6 +89,8 @@ public class newsForm extends AppCompatActivity {
 
         //se crea la instancia a la base de datos
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        mStorage = FirebaseStorage.getInstance().getReference();
+        mProgress = new ProgressDialog(this);
         mRootReference = FirebaseDatabase.getInstance().getReference();
         textInputLayout=findViewById(R.id.dropDownOption);
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
@@ -189,15 +201,39 @@ public class newsForm extends AppCompatActivity {
 
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK){
+            mProgress.setMessage("Adjuntando imagen...");
+            mProgress.show();
+            Uri uri= data.getData();
+
+            filePath = mStorage.child("Photo").child(uri.getLastPathSegment());
+            filePath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    flag++;
+                    mProgress.dismiss();
+                    Toast.makeText(newsForm.this, "Se ha adjuntado la imagen", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
 
     //metodo para guardar la novedad
     public void  saveNovelties(View view){
         String prior = Priority.getText().toString().trim();
         String elem = Element.getText().toString().trim();
         String desc = Description.getText().toString().trim();
+        String photoPath;
 
-        Log.d("data:", desc);
-
+        if(flag !=0){
+            photoPath= filePath.toString().trim();
+        }else{
+            photoPath= "";
+        }
 
         if(!validateInputs(prior, elem, desc)){
             FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -207,6 +243,7 @@ public class newsForm extends AppCompatActivity {
             map.put("priority", prior);
             map.put("condition", elem);
             map.put("description", desc);
+            map.put("photoPath", photoPath);
 
             db.collection("news_report").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
@@ -215,7 +252,6 @@ public class newsForm extends AppCompatActivity {
                     Element.setText(null);
                     Priority.setText(null);
                     Description.setText(null);
-
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -223,8 +259,6 @@ public class newsForm extends AppCompatActivity {
                     Toast.makeText(newsForm.this, "Fallo la creacion del reporte", Toast.LENGTH_LONG).show();
                 }
             });
-
-
 
         }
 
@@ -250,6 +284,7 @@ public class newsForm extends AppCompatActivity {
            Description.requestFocus();
            return true;
        }
+
 
        return false;
    }
