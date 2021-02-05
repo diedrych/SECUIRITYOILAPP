@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Registrarusuarios extends AppCompatActivity {
+public class RegistroUsuarios extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registrarusuarios);
+        setContentView(R.layout.activity_registro_usuarios);
     }
 }
