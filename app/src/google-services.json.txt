@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "560023720599",
+    "project_id": "securityoilapp",
+    "storage_bucket": "securityoilapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560023720599:android:d8d7743073aec990af0fd2",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "560023720599-cu5tc34lurcnte1ic3l1fp43b4hlmcb4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-bqTDDQBfrUVY63FP7qB5wTmayUH4OhA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "560023720599-cu5tc34lurcnte1ic3l1fp43b4hlmcb4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

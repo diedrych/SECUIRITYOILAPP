@@ -67,9 +67,7 @@ public class newsForm extends AppCompatActivity {
         textInputLayout=findViewById(R.id.dropDownOption);
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
 
-
         String[] options = {};
-
 
         tv1 =(TextView)findViewById(R.id.textViewTitle);
         String dato = getIntent().getStringExtra("dato");
@@ -91,11 +89,10 @@ public class newsForm extends AppCompatActivity {
                     }
                 });
 
-
-        if (ContextCompat.checkSelfPermission(newsForm.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(newsForm.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(newsForm.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+                PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(newsForm.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(newsForm.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);
         }
-
 
         //se crea el arraydapater
         String[] nombres = new String[]{"luna", "pedro", "martha"};
@@ -103,9 +100,6 @@ public class newsForm extends AppCompatActivity {
                 this, R.layout.dropdown_item, options
         );
         autoCompleteTextView.setAdapter(adapter);
-
-
-
     }
 
     //metodo para mostrar y ocultar el menu

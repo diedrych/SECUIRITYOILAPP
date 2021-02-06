@@ -19,4 +19,9 @@ public class MainActivity extends AppCompatActivity {
         Intent reportMenu = new Intent(this, NewsReportMenu.class);
         startActivity(reportMenu);
     }
+
+    public void reports(View view){
+        Intent reports = new Intent(this, ReportsActivity.class);
+        startActivity(reports);
+    }
 }

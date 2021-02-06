@@ -34,7 +34,6 @@ public class NewsReportMenu extends AppCompatActivity {
         iw1 =(ImageView)findViewById(R.id.accident);
         tw1 =(TextView) findViewById(R.id.accidentText);
 
-
         //Agrega el icono al action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
