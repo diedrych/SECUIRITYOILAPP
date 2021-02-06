@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background1"
+    tools:context=".e_learning">
+
+    <TextView
+        android:id="@+id/textViewT"
+        android:layout_width="334dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="@string/txt_elearning"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_margin="10sp"
+        android:columnCount="1"
+        android:rowCount="3">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="5sp"
+            android:layout_marginTop="60sp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/normativity"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_normativity"
+                android:background="@drawable/white_rectangle_background"
+                android:src="@drawable/ic_rule" />
+
+            <TextView
+                android:id="@+id/normativityText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5sp"
+                android:gravity="center"
+                android:text="@string/txt_normativity"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="5sp"
+            android:layout_marginTop="60sp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/care_tips"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_care_tips"
+                android:background="@drawable/white_rectangle_background"
+                android:src="@drawable/ic_care_tips" />
+
+            <TextView
+                android:id="@+id/care_tipsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5sp"
+                android:gravity="center"
+                android:text="@string/txt_care_tips"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="5sp"
+            android:layout_marginTop="60sp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/consider"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_consider"
+                android:background="@drawable/white_rectangle_background"
+                android:src="@drawable/ic_consider" />
+
+            <TextView
+                android:id="@+id/considertxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5sp"
+                android:gravity="center"
+                android:text="@string/txt_consider"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </GridLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

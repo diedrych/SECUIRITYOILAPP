@@ -5,6 +5,7 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -16,7 +17,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+
         <activity android:name=".hour"></activity>
+        <activity android:name=".news"></activity>
+        <activity android:name=".information" />
+        <activity android:name=".covid" />
+        <activity android:name=".consider" />
+        <activity
+            android:name=".popupwarn"
+            android:theme="@style/Theme.AppCompat.Popup" />
+        <activity
+            android:name=".popupcleaning"
+            android:theme="@style/Theme.AppCompat.Popup" />
+        <activity
+            android:name=".popupquery"
+            android:theme="@style/Theme.AppCompat.Popup" />
+        <activity
+            android:name=".popupmachinery"
+            android:theme="@style/Theme.AppCompat.Popup" />
+        <activity
+            android:name=".popupfocus"
+            android:theme="@style/Theme.AppCompat.Popup" />
+        <activity
+            android:name=".popuphands"
+            android:theme="@style/Theme.AppCompat.Popup" />
+        <activity android:name=".content" />
+        <activity android:name=".normativity" />
+        <activity android:name=".e_learning" />
         <activity android:name=".newsForm" />
         <activity android:name=".NewsReportMenu" />
         <activity android:name=".MainActivity">
@@ -34,7 +61,9 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
+
                 android:resource="@xml/file_paths"></meta-data>
+
         </provider>
     </application>
 

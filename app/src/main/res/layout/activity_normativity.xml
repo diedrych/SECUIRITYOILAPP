@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background1"
+    tools:context=".normativity">
+
+    <TextView
+        android:id="@+id/textViewT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="@string/txt_normativity"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_margin="5sp"
+        android:columnCount="1"
+        android:rowCount="7">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_margin="2sp"
+            android:layout_marginTop="60sp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/dowload_rule_100"
+                android:layout_width="80sp"
+                android:layout_height="30sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_normativity"
+                android:src="@drawable/ic_download" />
+
+            <TextView
+                android:id="@+id/rule100Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/txt_rule100"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_marginTop="35sp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/dowload_rule_1072"
+                android:layout_width="80sp"
+                android:layout_height="30sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_normativity"
+                android:src="@drawable/ic_download" />
+
+            <TextView
+                android:id="@+id/rule1072Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5sp"
+                android:gravity="center"
+                android:text="@string/txt_rule1072"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_margin="2sp"
+            android:layout_marginTop="35sp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/dowload_rule_614"
+            android:layout_width="80sp"
+            android:layout_height="30sp"
+            android:layout_marginTop="5sp"
+            android:contentDescription="@string/txt_normativity"
+            android:src="@drawable/ic_download" />
+
+        <TextView
+            android:id="@+id/rule614Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5sp"
+            android:gravity="center"
+            android:text="@string/txt_rule614"
+            android:background="@drawable/white_rectangle_background"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_margin="2sp"
+            android:layout_marginTop="35sp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/dowload_rule_1281"
+                android:layout_width="80sp"
+                android:layout_height="30sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_normativity"
+                android:src="@drawable/ic_download" />
+
+            <TextView
+                android:id="@+id/rule1281Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5sp"
+                android:gravity="center"
+                android:text="@string/txt_rule1281"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_margin="2sp"
+            android:layout_marginTop="35sp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/dowload_rule_1295"
+                android:layout_width="80sp"
+                android:layout_height="30sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_normativity"
+                android:src="@drawable/ic_download" />
+
+            <TextView
+                android:id="@+id/rule1295Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5sp"
+                android:gravity="center"
+                android:text="@string/txt_rule1295"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_margin="2sp"
+            android:layout_marginTop="35sp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/dowload_rule_2400"
+                android:layout_width="80sp"
+                android:layout_height="30sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_normativity"
+                android:src="@drawable/ic_download" />
+
+            <TextView
+                android:id="@+id/rule2400Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5sp"
+                android:gravity="center"
+                android:text="@string/txt_rule2400"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_margin="2sp"
+            android:layout_marginTop="35sp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/dowload_rule_1016"
+                android:layout_width="80sp"
+                android:layout_height="30sp"
+                android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_normativity"
+                android:src="@drawable/ic_download" />
+
+            <TextView
+                android:id="@+id/rule1016Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5sp"
+                android:gravity="center"
+                android:text="@string/txt_rule1016"
+                android:background="@drawable/white_rectangle_background"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </GridLayout>
+
+</RelativeLayout>
