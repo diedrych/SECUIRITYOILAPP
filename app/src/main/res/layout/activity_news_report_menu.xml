@@ -24,7 +24,6 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:layout_margin="30sp"
         android:columnCount="2"
         android:rowCount="3">
@@ -75,14 +74,19 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/insurance"
+                android:onClick="passNewForm2"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_insecure_act"
                 android:src="@drawable/ic_siren128" />
 
             <TextView
+                android:id="@+id/insuranceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="n8TeMq3oFON2AZlh6iym"
                 android:layout_marginBottom="5sp"
                 android:gravity="center"
                 android:text="@string/txt_insecure_act"
@@ -103,18 +107,23 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/helmet"
+                android:onClick="passNewForm3"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_epp"
                 android:src="@drawable/ic_helmet128" />
 
             <TextView
+                android:id="@+id/helmetText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5sp"
                 android:gravity="center"
                 android:text="@string/txt_epp"
                 android:textColor="@color/black"
+                android:contentDescription="03PVL23rIhXKBwSNuNmN"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -131,18 +140,23 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/tool"
                 android:layout_width="100sp"
+                android:onClick="passNewForm4"
                 android:layout_height="100sp"
                 android:layout_marginTop="5sp"
                 android:scaleType="fitXY"
+                android:contentDescription="@string/txt_tools"
                 android:src="@drawable/ic_tools128" />
 
             <TextView
+                android:id="@+id/toolText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5sp"
                 android:gravity="center"
                 android:text="@string/txt_tools"
+                android:contentDescription="qjyVp7UUfZy76Rr9ENUV"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -160,18 +174,23 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/machine"
+                android:onClick="passNewForm5"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_machine"
                 android:src="@drawable/ic_production128" />
 
             <TextView
+                android:id="@+id/machineText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5sp"
                 android:gravity="center"
                 android:text="@string/txt_machine"
                 android:textColor="@color/black"
+                android:contentDescription="T2Pmn4mpFMlKBS5LakED"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -188,18 +207,23 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/enviroment"
+                android:onClick="passNewForm6"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:layout_marginTop="5sp"
+                android:contentDescription="@string/txt_enviroment"
                 android:src="@drawable/ic_fever128" />
 
             <TextView
+                android:id="@+id/enviromentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5sp"
                 android:gravity="center"
                 android:text="@string/txt_enviroment"
                 android:textColor="@color/black"
+                android:contentDescription="kjLuXtAx5iPfGrshpQaG"
                 android:textSize="14sp" />
         </LinearLayout>
 

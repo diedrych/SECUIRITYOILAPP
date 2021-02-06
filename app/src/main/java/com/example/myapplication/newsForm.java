@@ -7,7 +7,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -18,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +28,8 @@ import android.content.pm.PackageManager;
 import android.Manifest;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
@@ -32,12 +37,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.IOError;
@@ -45,15 +55,32 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 public class newsForm extends AppCompatActivity {
 
     DatabaseReference mRootReference;
     TextInputLayout textInputLayout;
     AutoCompleteTextView autoCompleteTextView;
+    AutoCompleteTextView autoCompletePriority;
     private TextView tv1;
+    File photoFile = null;
+    private EditText Element;
+    private EditText Priority;
+    private EditText Description;
     private ImageView img;
+
+    private StorageReference mStorage;
+    private ProgressDialog mProgress;
+    private StorageReference filePath;
+    int flag =0;
+
 
 
     @Override
@@ -63,12 +90,18 @@ public class newsForm extends AppCompatActivity {
 
         //se crea la instancia a la base de datos
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        mStorage = FirebaseStorage.getInstance().getReference();
+        mProgress = new ProgressDialog(this);
         mRootReference = FirebaseDatabase.getInstance().getReference();
         textInputLayout=findViewById(R.id.dropDownOption);
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+        autoCompletePriority = findViewById(R.id.autoCompletePriority);
+        Element = (EditText)findViewById(R.id.autoCompleteTextView);
+        Priority = (EditText)findViewById(R.id.autoCompletePriority);
+        Description = (EditText)findViewById(R.id.editDescription);
 
 
-        String[] options = {};
+        ArrayList<String> options = new ArrayList<String>();
 
 
         tv1 =(TextView)findViewById(R.id.textViewTitle);
@@ -82,11 +115,13 @@ public class newsForm extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful()){
                             for(QueryDocumentSnapshot document: task.getResult()){
-                                Log.d("meca", document.getId() + "=> " + document.getData());
-                              // options = add_element("hola");
+                                Log.d("data:", document.getId() + "=> " + document.getData());
+                               String subtypesName =document.getData().get("subtype_novelty_name").toString();
+                                String subtypesId =document.getId().toString();
+                               options.add(subtypesName);
                             }
                         }else{
-                            Log.w("meca", "error meca");
+                            Log.w("error", "error getting documents");
                         }
                     }
                 });
@@ -96,16 +131,18 @@ public class newsForm extends AppCompatActivity {
             ActivityCompat.requestPermissions(newsForm.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);
         }
 
-
-        //se crea el arraydapater
-        String[] nombres = new String[]{"luna", "pedro", "martha"};
+        Collections.sort(options);
         ArrayAdapter<String> adapter= new ArrayAdapter<>(
                 this, R.layout.dropdown_item, options
         );
+
+        String[] priority = {"Alto", "Medio", "Bajo"};
+        ArrayAdapter<String> priorities = new ArrayAdapter<>(
+                this, R.layout.dropdown_item, priority
+        );
+
         autoCompleteTextView.setAdapter(adapter);
-
-
-
+        autoCompletePriority.setAdapter(priorities);
     }
 
     //metodo para mostrar y ocultar el menu
@@ -146,7 +183,7 @@ public class newsForm extends AppCompatActivity {
     public void takePicture(View view){
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if(takePictureIntent.resolveActivity(getPackageManager()) != null){
-            File photoFile=null;
+           // File photoFile=null;
             try{
                 photoFile=createImageFile();
 
@@ -165,6 +202,91 @@ public class newsForm extends AppCompatActivity {
 
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK){
+            mProgress.setMessage("Adjuntando imagen...");
+            mProgress.show();
+            Uri uri= data.getData();
+
+            filePath = mStorage.child("Photo").child(uri.getLastPathSegment());
+            filePath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    flag++;
+                    mProgress.dismiss();
+                    Toast.makeText(newsForm.this, "Se ha adjuntado la imagen", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
 
 
+    //metodo para guardar la novedad
+    public void  saveNovelties(View view){
+        String prior = Priority.getText().toString().trim();
+        String elem = Element.getText().toString().trim();
+        String desc = Description.getText().toString().trim();
+        String photoPath;
+
+        if(flag !=0){
+            photoPath= filePath.toString().trim();
+        }else{
+            photoPath= "";
+        }
+
+        if(!validateInputs(prior, elem, desc)){
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            Map<String, Object> map= new HashMap<>();
+            map.put("date", new Date().getTime());
+            map.put("priority", prior);
+            map.put("condition", elem);
+            map.put("description", desc);
+            map.put("photoPath", photoPath);
+
+            db.collection("news_report").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                @Override
+                public void onSuccess(DocumentReference documentReference) {
+                    Toast.makeText(newsForm.this, "Reporte creado con Exito", Toast.LENGTH_LONG).show();
+                    Element.setText(null);
+                    Priority.setText(null);
+                    Description.setText(null);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(newsForm.this, "Fallo la creacion del reporte", Toast.LENGTH_LONG).show();
+                }
+            });
+
+        }
+
+    }
+
+
+   //metodo para valida que los campos esten llenos
+   private boolean validateInputs(String prior, String cond, String desc) {
+       if (prior.isEmpty()) {
+          // autoCompletePriority.setError("Ingrese la prioridad");
+           autoCompletePriority.requestFocus();
+           return true;
+       }
+
+       if (cond.isEmpty()) {
+           autoCompleteTextView.setError("Ingrese la condición");
+           autoCompleteTextView.requestFocus();
+           return true;
+       }
+
+       if (desc.isEmpty()) {
+           Description.setError("Ingrese la descripción");
+           Description.requestFocus();
+           return true;
+       }
+
+
+       return false;
+   }
 }
