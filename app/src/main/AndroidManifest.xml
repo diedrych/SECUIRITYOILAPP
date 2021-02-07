@@ -6,6 +6,7 @@
         android:name="android.hardware.camera"
         android:required="true" />
 
+
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -44,6 +45,22 @@
         <activity android:name=".content" />
         <activity android:name=".normativity" />
         <activity android:name=".e_learning" />
+        <activity android:name=".PruebaInicioSesion"></activity>
+        <activity android:name=".RegistroUsuarios" />
+        <activity android:name=".Iniciarsesion" />
+        <activity
+            android:name=".ui.login.Registro_De_Usuarios"
+            android:label="@string/title_activity_registro__de__usuarios" />
+        <activity
+            android:name=".Registro_De_Usuarios"
+            android:label="@string/title_activity_registro__de__usuarios"
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
+        <activity
+            android:name=".ui.login.Inicio_Sesion"
+            android:label="@string/title_activity_inicio__sesion" />
+        <activity
+            android:name=".ui.login.inicio_sesion"
+            android:label="@string/title_activity_inicio_sesion" />
         <activity android:name=".newsForm" />
         <activity android:name=".NewsReportMenu" />
         <activity android:name=".MainActivity">
@@ -61,7 +78,6 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-
                 android:resource="@xml/file_paths"></meta-data>
 
         </provider>

@@ -33,7 +33,18 @@
         android:onClick="reportMenu"
         android:text="Button"
         tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="267dp" />
+        tools:layout_editor_absoluteY="267dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/txtR_usuario"
+        android:layout_width="247dp"
+        android:layout_height="63dp"
+        android:onClick="iniciar"
+        android:text="Registrar"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="190dp" />
 
     <Button
         android:id="@+id/elearning"
