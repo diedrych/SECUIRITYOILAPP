@@ -1,11 +1,10 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
 
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="true" />
+        android:required="true"/>
 
 
 
@@ -50,6 +49,7 @@
         <activity android:name=".PruebaInicioSesion"></activity>
         <activity android:name=".RegistroUsuarios" />
         <activity android:name=".Iniciarsesion" />
+        <!--
         <activity
             android:name=".ui.login.Registro_De_Usuarios"
             android:label="@string/title_activity_registro_de_usuarios" />
@@ -62,7 +62,8 @@
             android:label="@string/title_activity_inicio__sesion" />
         <activity
             android:name=".ui.login.inicio_sesion"
-            android:label="@string/title_activity_inicio_sesion" />
+            android:label="@string/title_activity_inicio_sesion" />-->
+
         <activity android:name=".DetalleInformeActivity"></activity>
         <activity android:name=".ReportsActivity" />
 
