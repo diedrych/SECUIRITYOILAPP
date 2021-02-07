@@ -49,5 +49,9 @@ public class MainActivity<EdicText, EdiText> extends AppCompatActivity {
         startActivity(iniciar);
 
     }
+    public void reports(View view){
+        Intent reports = new Intent(this, ReportsActivity.class);
+        startActivity(reports);
+    }
 
 }

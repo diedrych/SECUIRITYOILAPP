@@ -27,7 +27,7 @@ public class NewsReportMenu extends AppCompatActivity {
 
     private ImageView iw1, iw2, iw3, iw4, iw5, iw6;
     private TextView tw1, tw2, tw3, tw4, tw5, tw6;
-   private EditText date;
+    private EditText date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
