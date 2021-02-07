@@ -31,22 +31,23 @@ public class MainActivity<EdicText, EdiText> extends AppCompatActivity {
     }
 
     //siguiente boton
-    public void reportMenu(View view){
+    public void reportMenu(View view) {
         Intent reportMenu = new Intent(this, NewsReportMenu.class);
         startActivity(reportMenu);
     }
 
-<<<<<<< HEAD
+
     //e_learning boton
-    public void ELearning(View view){
+    public void ELearning(View view) {
         Intent ELearning = new Intent(this, e_learning.class);
         startActivity(ELearning);
-=======
-    // boton inicio de sesion
-    public void iniciar (View View){
-      Intent iniciar = new Intent (this, Iniciarsesion.class);
-      startActivity(iniciar);
-
->>>>>>> fb7aa319c9bc89d36702f8f0cae3c1bd9e4903d8
     }
+
+    // boton inicio de sesion
+    public void iniciar(View View) {
+        Intent iniciar = new Intent(this, Iniciarsesion.class);
+        startActivity(iniciar);
+
+    }
+
 }
