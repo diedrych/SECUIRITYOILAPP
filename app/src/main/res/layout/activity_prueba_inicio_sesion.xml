@@ -6,36 +6,110 @@
     android:layout_height="match_parent"
     tools:context=".PruebaInicioSesion">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="414dp"
-        android:layout_height="507dp"
-        android:layout_weight="1"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:srcCompat="@drawable/ic_background1"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="95dp" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="279dp"
+        android:layout_height="36dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="MENU PRINCIPAL"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="408dp"
-        android:layout_height="593dp"
-        android:orientation="horizontal"
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="164dp"
+        android:layout_height="528dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
+            android:layout_width="155dp"
+            android:layout_height="171dp"
+            android:orientation="vertical"
+            app:layout_column="1"
+            app:layout_row="0">
 
-            style="@style/Widget.AppCompat.TextView.SpinnerItem"
-            android:layout_width="wrap_content"
-            android:layout_height="73dp"
-            android:layout_weight="8"
-            android:gravity="center"
-            android:text="BIENVENIDOS "
-            android:textColor="@color/black" />
+            <ImageButton
+                android:id="@+id/imageButton8"
+                android:layout_width="match_parent"
+                android:layout_height="116dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_elearning" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/normativityText2"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="5sp"
+                android:background="@drawable/white_rectangle_background"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="E-LEARNING"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="155dp"
+            android:layout_height="171dp"
+            android:orientation="vertical"
+            app:layout_column="1"
+            app:layout_row="2">
+
+            <ImageButton
+                android:id="@+id/imageButton9"
+                android:layout_width="match_parent"
+                android:layout_height="116dp"
+                app:srcCompat="@drawable/ic_reportes" />
+
+            <TextView
+                android:id="@+id/normativityText3"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="5sp"
+                android:background="@drawable/white_rectangle_background"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="REPORTE"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="155dp"
+            android:layout_height="171dp"
+            android:orientation="vertical"
+            app:layout_column="1"
+            app:layout_row="1">
+
+            <ImageButton
+                android:id="@+id/imageButton6"
+                android:layout_width="match_parent"
+                android:layout_height="116dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_reporte" />
+
+            <TextView
+                android:id="@+id/normativityText4"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="5sp"
+                android:background="@drawable/white_rectangle_background"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="ESTADISTICA"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </androidx.gridlayout.widget.GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
