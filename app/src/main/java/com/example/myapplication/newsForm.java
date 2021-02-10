@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -69,6 +71,7 @@ public class newsForm extends AppCompatActivity {
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,10 +126,19 @@ public class newsForm extends AppCompatActivity {
                 this, R.layout.dropdown_item, options
         );
 
+
         String[] priority = {"Alto", "Medio", "Bajo"};
+        /*
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.dropdown_item, priority);
+        autoCompletePriority.setText(arrayAdapter.getItem(0).toString(), false);
+        autoCompletePriority.setAdapter(arrayAdapter);
+        */
+
         ArrayAdapter<String> priorities = new ArrayAdapter<>(
                 this, R.layout.dropdown_item, priority
         );
+
+
 
         autoCompleteTextView.setAdapter(adapter);
         autoCompletePriority.setAdapter(priorities);
