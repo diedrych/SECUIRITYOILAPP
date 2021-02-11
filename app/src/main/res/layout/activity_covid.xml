@@ -44,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_care1"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
@@ -53,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_care2"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
@@ -62,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_care3"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
@@ -71,6 +74,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_care4"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
@@ -80,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_care5"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
@@ -89,6 +94,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_care6"
                 android:textColor="@color/black"
                 android:textSize="15sp"/>
@@ -110,6 +116,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_symptom1"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
@@ -119,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_symptom2"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
@@ -128,6 +136,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_symptom3"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
@@ -137,6 +146,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_symptom4"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
@@ -146,6 +156,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_symptom5"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
@@ -155,6 +166,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_symptom6"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
@@ -164,6 +176,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10sp"
+                android:layout_margin="5sp"
                 android:text="@string/txt_symptom7"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
