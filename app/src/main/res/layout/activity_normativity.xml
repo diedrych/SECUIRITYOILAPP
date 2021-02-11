@@ -37,7 +37,8 @@
             android:layout_margin="2sp"
             android:layout_marginTop="60sp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/dowload_rule_100"
@@ -64,7 +65,8 @@
             android:layout_height="30sp"
             android:layout_marginTop="35sp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/dowload_rule_1072"
@@ -93,7 +95,8 @@
             android:layout_margin="2sp"
             android:layout_marginTop="35sp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/dowload_rule_614"
@@ -122,7 +125,8 @@
             android:layout_margin="2sp"
             android:layout_marginTop="35sp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/dowload_rule_1281"
