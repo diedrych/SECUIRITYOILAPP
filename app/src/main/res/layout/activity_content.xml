@@ -24,7 +24,7 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="30sp"
+        android:layout_margin="40sp"
         android:columnCount="2"
         android:rowCount="4">
 
