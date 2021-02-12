@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 public class
+
+
 RegistroUsuarios extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -75,8 +77,6 @@ RegistroUsuarios extends AppCompatActivity {
 
 
     }
-
-
 
     public void Regresar (View View) {
         Intent Regresar = new Intent(this, Iniciarsesion.class);
