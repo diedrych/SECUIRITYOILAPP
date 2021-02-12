@@ -239,6 +239,7 @@ public class newsForm extends AppCompatActivity {
             photoPath= "";
         }
 
+
         if(!validateInputs(prior, elem, desc)){
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
