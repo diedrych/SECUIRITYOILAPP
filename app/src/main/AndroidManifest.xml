@@ -48,7 +48,13 @@
         <activity android:name=".e_learning" />
         <activity android:name=".PruebaInicioSesion"></activity>
         <activity android:name=".RegistroUsuarios" />
-        <activity android:name=".Iniciarsesion" />
+        <activity android:name=".Iniciarsesion">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!--
         <activity
             android:name=".ui.login.Registro_De_Usuarios"
@@ -70,11 +76,6 @@
         <activity android:name=".newsForm" />
         <activity android:name=".NewsReportMenu" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <provider

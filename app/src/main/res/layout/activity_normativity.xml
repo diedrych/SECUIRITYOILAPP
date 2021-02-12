@@ -21,29 +21,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:layout_margin="5sp"
-        android:columnCount="1"
-        android:rowCount="7">
-
-
+        android:layout_margin="40sp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="30sp"
-            android:layout_margin="2sp"
-            android:layout_marginTop="60sp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="40sp"
+            android:layout_marginTop="30sp"
+            android:gravity="start"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/dowload_rule_100"
                 android:layout_width="80sp"
                 android:layout_height="30sp"
-                android:layout_marginTop="5sp"
                 android:contentDescription="@string/txt_normativity"
                 android:src="@drawable/ic_download" />
 
@@ -51,26 +46,25 @@
                 android:id="@+id/rule100Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="@string/txt_rule100"
-                android:background="@drawable/white_rectangle_background"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="30sp"
-            android:layout_marginTop="35sp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="40sp"
+            android:layout_marginTop="30sp"
+            android:gravity="start"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/dowload_rule_1072"
                 android:layout_width="80sp"
                 android:layout_height="30sp"
-                android:layout_marginTop="5sp"
                 android:contentDescription="@string/txt_normativity"
                 android:src="@drawable/ic_download" />
 
@@ -78,28 +72,25 @@
                 android:id="@+id/rule1072Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5sp"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="@string/txt_rule1072"
-                android:background="@drawable/white_rectangle_background"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="30sp"
-            android:layout_margin="2sp"
-            android:layout_marginTop="35sp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="40sp"
+            android:layout_marginTop="30sp"
+            android:gravity="start"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/dowload_rule_614"
             android:layout_width="80sp"
             android:layout_height="30sp"
-            android:layout_marginTop="5sp"
             android:contentDescription="@string/txt_normativity"
             android:src="@drawable/ic_download" />
 
@@ -107,28 +98,25 @@
             android:id="@+id/rule614Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5sp"
-            android:gravity="center"
+            android:gravity="start"
             android:text="@string/txt_rule614"
-            android:background="@drawable/white_rectangle_background"
             android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="30sp"
-            android:layout_margin="2sp"
-            android:layout_marginTop="35sp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="40sp"
+            android:layout_marginTop="30sp"
+            android:gravity="start"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/dowload_rule_1281"
                 android:layout_width="80sp"
                 android:layout_height="30sp"
-                android:layout_marginTop="5sp"
                 android:contentDescription="@string/txt_normativity"
                 android:src="@drawable/ic_download" />
 
@@ -136,28 +124,25 @@
                 android:id="@+id/rule1281Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5sp"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="@string/txt_rule1281"
-                android:background="@drawable/white_rectangle_background"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="30sp"
-            android:layout_margin="2sp"
-            android:layout_marginTop="35sp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="40sp"
+            android:layout_marginTop="30sp"
+            android:gravity="start"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/dowload_rule_1295"
                 android:layout_width="80sp"
                 android:layout_height="30sp"
-                android:layout_marginTop="5sp"
                 android:contentDescription="@string/txt_normativity"
                 android:src="@drawable/ic_download" />
 
@@ -165,28 +150,25 @@
                 android:id="@+id/rule1295Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5sp"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="@string/txt_rule1295"
-                android:background="@drawable/white_rectangle_background"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="30sp"
-            android:layout_margin="2sp"
-            android:layout_marginTop="35sp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="40sp"
+            android:layout_marginTop="30sp"
+            android:gravity="start"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/dowload_rule_2400"
                 android:layout_width="80sp"
                 android:layout_height="30sp"
-                android:layout_marginTop="5sp"
                 android:contentDescription="@string/txt_normativity"
                 android:src="@drawable/ic_download" />
 
@@ -194,28 +176,25 @@
                 android:id="@+id/rule2400Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5sp"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="@string/txt_rule2400"
-                android:background="@drawable/white_rectangle_background"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="30sp"
-            android:layout_margin="2sp"
-            android:layout_marginTop="35sp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="40sp"
+            android:layout_marginTop="30sp"
+            android:gravity="start"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/dowload_rule_1016"
                 android:layout_width="80sp"
                 android:layout_height="30sp"
-                android:layout_marginTop="5sp"
                 android:contentDescription="@string/txt_normativity"
                 android:src="@drawable/ic_download" />
 
@@ -223,14 +202,12 @@
                 android:id="@+id/rule1016Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5sp"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="@string/txt_rule1016"
-                android:background="@drawable/white_rectangle_background"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
-    </GridLayout>
+    </LinearLayout>
 
 </RelativeLayout>
