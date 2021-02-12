@@ -3,9 +3,11 @@ package com.example.myapplication;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -13,6 +15,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -21,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -61,14 +66,15 @@ public class newsForm extends AppCompatActivity {
     private EditText Priority;
     private EditText Description;
     private ImageView img;
-
     private StorageReference mStorage;
     private ProgressDialog mProgress;
     private StorageReference filePath;
+    String dato;
     int flag =0;
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +98,7 @@ public class newsForm extends AppCompatActivity {
 
 
         TextView tv1 = (TextView) findViewById(R.id.textViewTitle);
-        String dato = getIntent().getStringExtra("dato");
+        dato = getIntent().getStringExtra("dato");
         String code =  getIntent().getStringExtra("code");
         tv1.setText(dato);
 
@@ -118,15 +124,26 @@ public class newsForm extends AppCompatActivity {
             ActivityCompat.requestPermissions(newsForm.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);
         }
 
+
+
         Collections.sort(options);
         ArrayAdapter<String> adapter= new ArrayAdapter<>(
                 this, R.layout.dropdown_item, options
         );
 
+
         String[] priority = {"Alto", "Medio", "Bajo"};
+        /*
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.dropdown_item, priority);
+        autoCompletePriority.setText(arrayAdapter.getItem(0).toString(), false);
+        autoCompletePriority.setAdapter(arrayAdapter);
+        */
+
         ArrayAdapter<String> priorities = new ArrayAdapter<>(
                 this, R.layout.dropdown_item, priority
         );
+
+
 
         autoCompleteTextView.setAdapter(adapter);
         autoCompletePriority.setAdapter(priorities);
@@ -190,7 +207,6 @@ public class newsForm extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK){
             mProgress.setMessage("Adjuntando imagen...");
@@ -223,6 +239,7 @@ public class newsForm extends AppCompatActivity {
             photoPath= "";
         }
 
+
         if(!validateInputs(prior, elem, desc)){
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -232,6 +249,7 @@ public class newsForm extends AppCompatActivity {
             map.put("condition", elem);
             map.put("description", desc);
             map.put("photoPath", photoPath);
+            map.put("type of report", dato);
 
             db.collection("news_report").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
@@ -276,4 +294,8 @@ public class newsForm extends AppCompatActivity {
 
         return false;
     }
+
+
+
+
 }
