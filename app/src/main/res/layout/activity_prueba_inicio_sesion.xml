@@ -36,7 +36,8 @@
             app:layout_row="0">
 
             <ImageButton
-                android:id="@+id/imageButton8"
+                android:id="@+id/e_learning"
+                android:onClick="elearning"
                 android:layout_width="match_parent"
                 android:layout_height="116dp"
                 android:scaleType="fitXY"
