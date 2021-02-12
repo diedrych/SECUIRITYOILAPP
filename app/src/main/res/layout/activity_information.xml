@@ -43,7 +43,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="5sp"
+            android:layout_margin="20sp"
             android:text="@string/txt_Oil1"
             android:textColor="@color/black"
             android:textSize="16sp"/>
@@ -53,7 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="5sp"
+            android:layout_margin="20sp"
             android:text="@string/txt_Oil2"
             android:textColor="@color/black"
             android:textSize="16sp"/>
@@ -63,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:layout_marginTop="40sp"
+            android:layout_marginTop="20sp"
             android:text="@string/txt_security"
             android:background="@drawable/white_rectangle_background"
             android:textColor="@color/black"
@@ -73,7 +75,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="5sp"
+            android:layout_margin="20sp"
             android:text="@string/txt_security1"
             android:textColor="@color/black"
             android:textSize="16sp"/>
@@ -82,7 +85,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="5sp"
+            android:layout_margin="20sp"
             android:text="@string/txt_security2"
             android:textColor="@color/black"
             android:textSize="16sp"/>
@@ -91,7 +95,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="5sp"
+            android:layout_margin="20sp"
             android:text="@string/txt_security3"
             android:textColor="@color/black"
             android:textSize="16sp"/>
