@@ -65,6 +65,7 @@
 
             <ImageButton
                 android:id="@+id/imageButton9"
+                android:onClick="passNewFormppa"
                 android:layout_width="match_parent"
                 android:layout_height="116dp"
                 app:srcCompat="@drawable/ic_reportes" />
