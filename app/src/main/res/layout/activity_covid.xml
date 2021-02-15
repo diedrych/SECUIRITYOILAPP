@@ -7,19 +7,9 @@
     android:background="@drawable/ic_background1"
     tools:context=".covid">
 
-    <TextView
-        android:id="@+id/textViewT"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center_horizontal"
-        android:text="@string/txt_covid"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+     <androidx.core.widget.NestedScrollView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,8 +17,21 @@
         android:layout_margin="10sp"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textViewT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_covid"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+        <TextView
                 android:id="@+id/careText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -182,4 +185,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
     </LinearLayout>
+
+     </androidx.core.widget.NestedScrollView>
+
 </RelativeLayout>
