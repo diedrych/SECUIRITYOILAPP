@@ -241,30 +241,35 @@ public class newsForm extends AppCompatActivity {
 
 
         if(!validateInputs(prior, elem, desc)){
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            Map<String, Object> map= new HashMap<>();
-            map.put("date", new Date().getTime());
-            map.put("priority", prior);
-            map.put("condition", elem);
-            map.put("description", desc);
-            map.put("photoPath", photoPath);
-            map.put("type of report", dato);
+            if(photoPath !=""){
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            db.collection("news_report").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                @Override
-                public void onSuccess(DocumentReference documentReference) {
-                    Toast.makeText(newsForm.this, "Reporte creado con Exito", Toast.LENGTH_LONG).show();
-                    Element.setText(null);
-                    Priority.setText(null);
-                    Description.setText(null);
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(newsForm.this, "Fallo la creacion del reporte", Toast.LENGTH_LONG).show();
-                }
-            });
+                Map<String, Object> map= new HashMap<>();
+                map.put("date", new Date().getTime());
+                map.put("priority", prior);
+                map.put("condition", elem);
+                map.put("description", desc);
+                map.put("photoPath", photoPath);
+                map.put("type of report", dato);
+
+                db.collection("news_report").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Toast.makeText(newsForm.this, "Reporte creado con Exito", Toast.LENGTH_LONG).show();
+                        Element.setText(null);
+                        Priority.setText(null);
+                        Description.setText(null);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(newsForm.this, "Fallo la creacion del reporte", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }else{
+                Toast.makeText(this, "Debe adjuntar una imagen", Toast.LENGTH_LONG).show();
+            }
 
         }
 
@@ -280,13 +285,13 @@ public class newsForm extends AppCompatActivity {
         }
 
         if (cond.isEmpty()) {
-            autoCompleteTextView.setError("Ingrese la condición");
+           // autoCompleteTextView.setError("Ingrese la condición");
             autoCompleteTextView.requestFocus();
             return true;
         }
 
         if (desc.isEmpty()) {
-            Description.setError("Ingrese la descripción");
+           // Description.setError("Ingrese la descripción");
             Description.requestFocus();
             return true;
         }
