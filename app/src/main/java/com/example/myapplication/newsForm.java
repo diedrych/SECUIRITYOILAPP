@@ -2,15 +2,18 @@ package com.example.myapplication;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,6 +49,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import org.bouncycastle.jcajce.provider.symmetric.ARC4;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -54,6 +60,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class newsForm extends AppCompatActivity {
 
@@ -62,6 +69,7 @@ public class newsForm extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextView;
     AutoCompleteTextView autoCompletePriority;
     File photoFile = null;
+    public  Uri uri;
     private EditText Element;
     private EditText Priority;
     private EditText Description;
@@ -71,8 +79,10 @@ public class newsForm extends AppCompatActivity {
     private StorageReference filePath;
     String dato;
     int flag =0;
+    Uri photoURI;
 
-
+    private Bitmap image;
+    private ImageView photo;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @SuppressLint("CutPasteId")
@@ -93,10 +103,9 @@ public class newsForm extends AppCompatActivity {
         Priority = (EditText)findViewById(R.id.autoCompletePriority);
         Description = (EditText)findViewById(R.id.editDescription);
 
+        photo = findViewById(R.id.image);
 
         ArrayList<String> options = new ArrayList<String>();
-
-
         TextView tv1 = (TextView) findViewById(R.id.textViewTitle);
         dato = getIntent().getStringExtra("dato");
         String code =  getIntent().getStringExtra("code");
@@ -176,7 +185,6 @@ public class newsForm extends AppCompatActivity {
         String imageFileName = "Backup_" + timeStamp +"_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(imageFileName, ".jpg", storageDir);
-
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
     }
@@ -184,36 +192,59 @@ public class newsForm extends AppCompatActivity {
 
     //Metodo que toma foto y crea el archivo
     static final int REQUEST_TAKE_PHOTO = 1;
+    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
     public void takePicture(View view){
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
         if(takePictureIntent.resolveActivity(getPackageManager()) != null){
             // File photoFile=null;
             try{
                 photoFile=createImageFile();
-
             }catch (IOException ex){
 
             }
 
             if(photoFile != null){
-                Uri photoURI= FileProvider.getUriForFile(this, "com.example.android.fileprovider", photoFile);
+                photoURI= FileProvider.getUriForFile(this, "com.example.android.fileprovider", photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI.toString());
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-
             }
 
         }
 
     }
 
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK){
             mProgress.setMessage("Adjuntando imagen...");
             mProgress.show();
-            Uri uri= data.getData();
 
-            filePath = mStorage.child("Photo").child(uri.getLastPathSegment());
+
+           // uri= data.getData();
+           // filePath = mStorage.child("Photo").child(uri.getLastPathSegment());
+
+            image = (Bitmap) data.getExtras().get("data");
+            photo.setImageBitmap(image);
+
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            image.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+
+            final String random = UUID.randomUUID().toString();
+            StorageReference imageRef = mStorage.child("Photo/"+random);
+
+            byte[] b = stream.toByteArray();
+            imageRef.putBytes(b).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    flag++;
+                    mProgress.dismiss();
+                    Toast.makeText(newsForm.this, "Se ha adjuntado la imagen", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
+/*
             filePath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -222,6 +253,8 @@ public class newsForm extends AppCompatActivity {
                     Toast.makeText(newsForm.this, "Se ha adjuntado la imagen", Toast.LENGTH_SHORT).show();
                 }
             });
+            */
+
         }
     }
 
