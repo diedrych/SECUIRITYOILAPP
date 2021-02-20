@@ -77,6 +77,7 @@ public class newsForm extends AppCompatActivity {
     private StorageReference mStorage;
     private ProgressDialog mProgress;
     private StorageReference filePath;
+    private StorageReference imageRef;
     String dato;
     int flag =0;
     Uri photoURI;
@@ -231,7 +232,7 @@ public class newsForm extends AppCompatActivity {
             image.compress(Bitmap.CompressFormat.JPEG, 100, stream);
 
             final String random = UUID.randomUUID().toString();
-            StorageReference imageRef = mStorage.child("Photo/"+random);
+             imageRef = mStorage.child("Photo/"+random);
 
             byte[] b = stream.toByteArray();
             imageRef.putBytes(b).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -267,7 +268,7 @@ public class newsForm extends AppCompatActivity {
         String photoPath;
 
         if(flag !=0){
-            photoPath= filePath.toString().trim();
+            photoPath= imageRef.toString().trim();
         }else{
             photoPath= "";
         }
@@ -293,6 +294,8 @@ public class newsForm extends AppCompatActivity {
                         Element.setText(null);
                         Priority.setText(null);
                         Description.setText(null);
+                        photo.setImageResource(0);
+                        flag =0;
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
