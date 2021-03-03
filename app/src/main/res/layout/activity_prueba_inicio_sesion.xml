@@ -79,7 +79,7 @@
                 android:background="@drawable/white_rectangle_background"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center"
-                android:text="REPORTE"
+                android:text="REPORTES"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 

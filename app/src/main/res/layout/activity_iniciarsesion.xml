@@ -16,6 +16,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
+        android:onClick="iniciamos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
@@ -59,7 +60,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:drawableLeft="@drawable/ic_email" />
 
     <EditText
         android:id="@+id/txtpass1"
@@ -80,11 +82,12 @@
         app:layout_constraintTop_toBottomOf="@+id/txtuser1"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints"
-        tools:text="contrasena" />
+        tools:text="contrasena"
+        android:drawableLeft="@drawable/ic_lock" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="150dp"
+        android:layout_width="230dp"
         android:layout_height="36dp"
         android:layout_marginTop="32dp"
         android:onClick="iniciamos"
@@ -92,10 +95,10 @@
         android:text="ENTRAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtpass1"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.111"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -109,4 +112,17 @@
         app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="230dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="132dp"
+        android:onClick="ressetpass"
+        android:shadowColor="@color/black"
+        android:text="Recuperar Contraseña"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
