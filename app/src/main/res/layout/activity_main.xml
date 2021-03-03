@@ -7,47 +7,16 @@
     tools:context=".MainActivity">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_margin="5sp"
-        android:layout_marginRight="20sp"
-        android:layout_marginTop="60sp"
-        android:background="@drawable/white_rectangle_background"
-        android:gravity="center"
-        android:paddingRight="7sp"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="reportMenu"
-            android:text="Button"
-            tools:layout_editor_absoluteX="166dp"
-            tools:layout_editor_absoluteY="267dp"
-            tools:ignore="MissingConstraints" />
-
-        <Button
-            android:id="@+id/txtR_usuario"
-            android:layout_width="247dp"
-            android:layout_height="63dp"
-            android:onClick="iniciar"
-            android:text="Registrar"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="82dp"
-            tools:layout_editor_absoluteY="190dp" />
-
-        <Button
-            android:id="@+id/elearning"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="ELearning"
-            android:text="@string/txt_elearning"
-            tools:layout_editor_absoluteX="166dp"
-            tools:layout_editor_absoluteY="267dp" />
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="reportMenu"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/reportes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/reportes"
@@ -57,7 +26,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button">
+        app:layout_constraintTop_toBottomOf="@+id/button"
+       >
 
         <RelativeLayout
             android:layout_width="120dp"
