@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,11 +30,12 @@ RegistroUsuarios extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-     EditText  txtuser;
-     EditText txtpass;
-     Button btnregistrar;
+   private   EditText  txtuser;
+   private EditText txtpass;
+   private  EditText contraseña;
+   private EditText usuario;
 
-
+   private   Button btnregistrar;
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +44,9 @@ RegistroUsuarios extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         txtuser = findViewById(R.id.txtuser);
-        txtpass = findViewById(R.id.txtpass);
+        txtpass =  findViewById(R.id.txtpass);
+        contraseña =  (EditText)findViewById(R.id.txtpass);
+        usuario = (EditText)findViewById(R.id.txtuser);
         btnregistrar = findViewById(R.id.btnregistrar);
 
     }
@@ -54,20 +60,34 @@ RegistroUsuarios extends AppCompatActivity {
 
     public void Registrate(View View){
 
+        if (usuario.getText().toString().isEmpty()){
+            Toast.makeText(RegistroUsuarios.this, "Por favor Ingrese Un Usuario", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (contraseña.getText().toString().isEmpty()){
+            Toast.makeText(RegistroUsuarios.this, "Por favor Ingrese Una Contraseña ", Toast.LENGTH_SHORT).show();
 
-            if (txtpass.length()>=6){
-            }else
-                Toast.makeText(RegistroUsuarios.this, "su contraseña necesti minimo 6 caracteres", Toast.LENGTH_SHORT).show();
+        }
+
+        if (txtpass.getText().toString().length()<=6)
+        {
+            Toast.makeText(RegistroUsuarios.this, "Su Contraseña Necesita Minimo 6 Caracteres", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
 
         mAuth.createUserWithEmailAndPassword(txtuser.getText().toString(), txtpass.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
+
+
+                        if (task.isSuccessful()) {
                             Toast.makeText(RegistroUsuarios.this, "el usuario se registro", Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
                         }
-                        else{
+                        else {
 
                             Toast.makeText(RegistroUsuarios.this, "El usuario no se registro", Toast.LENGTH_SHORT).show();
                         }
@@ -76,9 +96,17 @@ RegistroUsuarios extends AppCompatActivity {
                 });
 
 
+
+
     }
 
-    public void Regresar (View View) {
-        Intent Regresar = new Intent(this, Iniciarsesion.class);
-        startActivity(Regresar);
-    }}
+
+
+
+
+    }
+
+
+
+
+
